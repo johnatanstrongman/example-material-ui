@@ -1,0 +1,1 @@
+ALTER TABLE "public"."myFirstTable" ADD COLUMN "vip" boolean NOT NULL default 'false' ;

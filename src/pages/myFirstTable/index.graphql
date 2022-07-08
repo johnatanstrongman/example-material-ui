@@ -1,0 +1,121 @@
+query myFirstTabl($id: uuid!) {
+  myFirstTabl(id: $id) {
+    ...myFirstTabl_myFirstTable
+  }
+}
+
+query myFirstTable($distinct_on: [myFirstTable_select_column!], $limit: Int, $offset: Int, $order_by: [myFirstTable_order_by!], $where: myFirstTable_bool_exp) {
+  myFirstTable(
+    distinct_on: $distinct_on
+    limit: $limit
+    offset: $offset
+    order_by: $order_by
+    where: $where
+  ) {
+    ...myFirstTable_myFirstTable
+  }
+}
+
+mutation deleteMyFirstTabl($id: uuid!) {
+  deleteMyFirstTabl(id: $id) {
+    ...deleteMyFirstTabl_myFirstTable
+  }
+}
+
+mutation deleteMyFirstTable($where: myFirstTable_bool_exp!) {
+  deleteMyFirstTable(where: $where) {
+    ...deleteMyFirstTable_myFirstTable_mutation_response
+  }
+}
+
+mutation insertMyFirstTabl($myFirstTable: myFirstTable_insert_input!, $on_conflict: myFirstTable_on_conflict) {
+  insertMyFirstTabl(object: $myFirstTable, on_conflict: $on_conflict) {
+    ...insertMyFirstTabl_myFirstTable
+  }
+}
+
+mutation insertMyFirstTable($myFirstTable: [myFirstTable_insert_input!]!, $on_conflict: myFirstTable_on_conflict) {
+  insertMyFirstTable(objects: $myFirstTable, on_conflict: $on_conflict) {
+    ...insertMyFirstTable_myFirstTable_mutation_response
+  }
+}
+
+mutation updateMyFirstTabl($myFirstTable: myFirstTable_set_input, $pk_columns: myFirstTable_pk_columns_input!) {
+  updateMyFirstTabl(_set: $myFirstTable, pk_columns: $pk_columns) {
+    ...updateMyFirstTabl_myFirstTable
+  }
+}
+
+mutation updateMyFirstTable($myFirstTable: myFirstTable_set_input, $where: myFirstTable_bool_exp!) {
+  updateMyFirstTable(_set: $myFirstTable, where: $where) {
+    ...updateMyFirstTable_myFirstTable_mutation_response
+  }
+}
+
+fragment myFirstTabl_myFirstTable on myFirstTable {
+  id
+  name
+  createdAt
+  updatedAt
+  note
+  vip
+}
+
+fragment myFirstTable_myFirstTable on myFirstTable {
+  id
+  name
+  createdAt
+  updatedAt
+  vip
+}
+
+fragment deleteMyFirstTabl_myFirstTable on myFirstTable {
+  id
+  name
+  createdAt
+  updatedAt
+}
+
+fragment deleteMyFirstTable_myFirstTable_mutation_response on myFirstTable_mutation_response {
+  returning {
+    createdAt
+    id
+    isDeleted
+    name
+    updatedAt
+  }
+}
+
+fragment insertMyFirstTabl_myFirstTable on myFirstTable {
+  id
+  name
+  createdAt
+  updatedAt
+}
+
+fragment insertMyFirstTable_myFirstTable_mutation_response on myFirstTable_mutation_response {
+  returning {
+    createdAt
+    id
+    isDeleted
+    name
+    updatedAt
+  }
+}
+
+fragment updateMyFirstTabl_myFirstTable on myFirstTable {
+  id
+  name
+  createdAt
+  updatedAt
+}
+
+fragment updateMyFirstTable_myFirstTable_mutation_response on myFirstTable_mutation_response {
+  returning {
+    createdAt
+    id
+    isDeleted
+    name
+    updatedAt
+  }
+}

@@ -38,6 +38,7 @@ const TotalCustomers: React.FC<any> = ({ className, ...rest }) => {
               </Avatar>
             </Grid>
           </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
         <Box mt={2} display="flex" alignItems="center">
           <ArrowUpward sx={{ color: colors.green[900] }} />

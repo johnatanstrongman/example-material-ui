@@ -1,0 +1,1 @@
+ALTER TABLE "public"."myFirstTable" ADD COLUMN "note" text NULL ;
